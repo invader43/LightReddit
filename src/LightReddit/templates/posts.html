@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>LightReddit</h1>
+<ul>
+    {% for post in posts %}
+        <li>{{post.content}}
+            <ul>{% for comment in getAllRepliesFunc(post , None) %}
+                <li>{{comment.comment}}</li>
+                {% endfor %}
+            </ul>
+        </li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

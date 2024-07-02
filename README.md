@@ -10,6 +10,7 @@ Primary goal is to create a light version of reddit backend , based on a Databas
 - [x] Write first intro
 - [x] Flask-SQLAlchemy setup
 - [x] Comments - How we can have infinite Replies
+- [ ] Setup all tables with relationships
 - [ ] CRUD Testing
     - [ ] for Users
     - [ ] For Posts

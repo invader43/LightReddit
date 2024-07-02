@@ -16,5 +16,7 @@ db = SQLAlchemy(app)
 
 
 from LightReddit.main.routes import main
+from LightReddit.posts.routes import posts
 
 app.register_blueprint(main)
+app.register_blueprint(posts)

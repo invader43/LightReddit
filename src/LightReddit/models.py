@@ -14,17 +14,22 @@ from datetime import datetime
 #     id = db.Column(db.Integer, primary_key=True)
 #     # post_id
 
-# class Post(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     #poster_id
-#     #media
-#     content = db.Column(db.Text , nullable = False)
-#     created_at = db.Column(db.DateTime , nullable = False , default = datetime.utcnow )
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    #poster_id
+    #media
+    content = db.Column(db.Text , nullable = False)
+    created_at = db.Column(db.DateTime , nullable = False , default = datetime.utcnow )
+    comments = db.relationship('Comment', backref='post',lazy=True)
+
+    def __repr__(self) :
+        return f"Post('{self.content}')"
+
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # commenter_id = ?
-    # post_id = ?
+    post_id = db.Column(db.Integer , db.ForeignKey('post.id') , nullable = False)
     reply_to_id = db.Column(db.Integer, db.ForeignKey('comment.id'))  
     # above [if null , meaning its a reply to base post]
     comment = db.Column(db.Text , nullable = False)
@@ -32,7 +37,7 @@ class Comment(db.Model):
 
     #how our object is printed 
     def __repr__(self):
-        return f"User('{self.username}','{self.email}' , '{self.image_file}' )"
+        return f"Comment('{self.post_id}','{self.comment}' , '{self.reply_to_id}')"
 
 # class Subreddit(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
