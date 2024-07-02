@@ -8,16 +8,13 @@ posts = Blueprint('posts', __name__ )
 def posts_html():
     posts = Post.query.all()
     # jsonify(posts)
-    return render_template("posts.html" , posts = posts, getAllRepliesFunc =GetAllReplies)
+    return render_template("posts.html" , posts = posts, getAllRepliesFunc = GetAllReplies)
 
 
 @posts.route('/api/posts' , methods = ["GET","POST"])
 def posts_api():
     posts = Post.query.all()
-    print(posts)
     postlist = [{"title" : post.title , "content" : post.content} for post in posts]
-
-
     return jsonify({"posts" : postlist})
 
 
