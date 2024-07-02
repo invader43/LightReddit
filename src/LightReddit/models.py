@@ -18,12 +18,13 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     #poster_id
     #media
+    title = db.Column(db.Text , nullable = False)
     content = db.Column(db.Text , nullable = False)
     created_at = db.Column(db.DateTime , nullable = False , default = datetime.utcnow )
     comments = db.relationship('Comment', backref='post',lazy=True)
 
     def __repr__(self) :
-        return f"Post('{self.content}')"
+        return f"Post(' {self.title} {self.content} {self.created_at}')"
 
 
 class Comment(db.Model):
