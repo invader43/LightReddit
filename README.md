@@ -8,7 +8,8 @@ Primary goal is to create a light version of reddit backend , based on a Databas
 
 ## Roadmap 
 - [x] Write first intro
-- [ ] Flask-SQLAlchemy setup
+- [x] Flask-SQLAlchemy setup
+- [x] Comments - How we can have infinite Replies
 - [ ] CRUD Testing
     - [ ] for Users
     - [ ] For Posts
