@@ -1,7 +1,10 @@
-from flask import Flask,render_template
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return render_template('home.html')
+
+from LightReddit.main.routes import main
+
+app.register_blueprint(main)
