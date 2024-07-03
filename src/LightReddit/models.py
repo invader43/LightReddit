@@ -43,6 +43,7 @@ class Comment(db.Model):
 # class Subreddit(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
 #     name =  db.Column(db.String(80), unique=True, nullable=False)
-#     # owner_id
+#     # owner_id = 
 #     created_at = db.Column(db.DateTime , nullable = False , default = datetime.utcnow )
+#     posts = db.relationship('Post', backref='subreddit', lazy=True)
 

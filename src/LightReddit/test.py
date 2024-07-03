@@ -9,12 +9,6 @@ db.drop_all()
 db.create_all()
 
 
-'''
-1 3 2
-
-
-
-'''
 
 
 def testPosts(postCount , commentsCount , replyCount ):
@@ -34,6 +28,8 @@ def testPosts(postCount , commentsCount , replyCount ):
     db.session.commit()
         
 
+def modelsToDBML():
+    pass
                 
 
 
